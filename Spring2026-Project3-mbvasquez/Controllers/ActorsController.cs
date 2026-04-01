@@ -54,7 +54,7 @@ namespace Spring2026_Project3_mbvasquez.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Gender,Age,ImbdLink")] Actor actor, IFormFile imageFile)
+        public async Task<IActionResult> Create([Bind("Id,Name,Gender,Age,ImbdLink")] Actor actor, IFormFile Photo)
         {
             if (_context.Actor.Any(a => a.Name == actor.Name))
             {
@@ -63,10 +63,10 @@ namespace Spring2026_Project3_mbvasquez.Controllers
             }
             if (ModelState.IsValid)
             {
-                if (imageFile != null && imageFile.Length > 0)
+                if (Photo != null && Photo.Length > 0)
                 {
                     using var memoryStream = new MemoryStream();
-                    await imageFile.CopyToAsync(memoryStream);
+                    await Photo.CopyToAsync(memoryStream);
                     actor.Photo = memoryStream.ToArray();
                 }
                 _context.Add(actor);
@@ -75,7 +75,7 @@ namespace Spring2026_Project3_mbvasquez.Controllers
             }
             return View(actor);
         }
-        public async Task<IActionResult> imageFile(int? id)
+        public async Task<IActionResult> Photo(int? id)
         {
             if (id == null)
             {
@@ -112,7 +112,7 @@ namespace Spring2026_Project3_mbvasquez.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Gender,Age,ImbdLink")] Actor actor, IFormFile imageFile)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Gender,Age,ImbdLink")] Actor actor, IFormFile Photo)
         {
             if (id != actor.Id)
             {
@@ -123,10 +123,10 @@ namespace Spring2026_Project3_mbvasquez.Controllers
             {
                 try
                 {
-                    if (imageFile != null && imageFile.Length > 0)
+                    if (Photo != null && Photo.Length > 0)
                     {
                         using var memoryStream = new MemoryStream();
-                        await imageFile.CopyToAsync(memoryStream);
+                        await Photo.CopyToAsync(memoryStream);
                         actor.Photo = memoryStream.ToArray();
                     }
                     _context.Update(actor);

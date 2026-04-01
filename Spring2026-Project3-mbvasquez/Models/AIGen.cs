@@ -13,13 +13,13 @@ namespace Spring2026_Project3_mbvasquez.Models;
 
 public class AIGen
 {
-    //string? ApiKey = WebApplication.CreateBuilder().Configuration["AI:ApiKey"];
-    //string? ApiUrl = WebApplication.CreateBuilder().Configuration["AI:ApiUrl"];
+    private static readonly string ApiKey = WebApplication.CreateBuilder().Configuration["ApiKey"] ?? throw new InvalidOperationException("ApiKey was not found.");
+    private static readonly string ApiUrl = WebApplication.CreateBuilder().Configuration["ApiUrl"] ?? throw new InvalidOperationException("ApiUrl was not found.");
 
 
     //string secret = builder.Configuration.GetSelection("AI");
-    private static readonly Uri ApiEndpoint = new(WebApplication.CreateBuilder().Configuration["ApiUrl"]);
-    private static readonly ApiKeyCredential ApiCredential = new(WebApplication.CreateBuilder().Configuration["ApiKey"]);
+    private static readonly Uri ApiEndpoint = new(ApiUrl);
+    private static readonly ApiKeyCredential ApiCredential = new(ApiKey);
     private const string AiDeployment = "gpt-4.1-mini";
     public record class Tweet(string Username, string Text);
     public record class Tweets(Tweet[] Items);

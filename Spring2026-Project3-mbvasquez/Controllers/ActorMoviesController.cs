@@ -65,7 +65,7 @@ namespace Spring2026_Project3_mbvasquez.Controllers
             if (exists)
             {
                 ModelState.AddModelError("ActorId", "This actor is already assigned to this movie.");
-                ModelState.AddModelError("MovieId", "This movie is already assigned to this movie.");
+                ModelState.AddModelError("MovieId", "This movie is already assigned to this actor.");
             }
             if (ModelState.IsValid)
             {
@@ -106,6 +106,13 @@ namespace Spring2026_Project3_mbvasquez.Controllers
             if (id != actorMovie.Id)
             {
                 return NotFound();
+            }
+
+            bool exists = _context.ActorMovie.Any(am => am.ActorId == actorMovie.ActorId && am.MovieId == actorMovie.MovieId);
+            if (exists)
+            {
+                ModelState.AddModelError("ActorId", "This actor is already assigned to this movie.");
+                ModelState.AddModelError("MovieId", "This movie is already assigned to this actor.");
             }
 
             if (ModelState.IsValid)

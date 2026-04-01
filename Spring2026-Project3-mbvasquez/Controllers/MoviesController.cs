@@ -54,7 +54,7 @@ namespace Spring2026_Project3_mbvasquez.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ImbdLink,Genre,YearOfRelease")] Movie movie, IFormFile imageFile)
+        public async Task<IActionResult> Create([Bind("Id,Title,ImbdLink,Genre,YearOfRelease")] Movie movie, IFormFile Poster)
         {
             if (_context.Movie.Any(m => m.Title == movie.Title))
             {
@@ -63,10 +63,10 @@ namespace Spring2026_Project3_mbvasquez.Controllers
             }
             if (ModelState.IsValid)
             {
-                if (imageFile != null && imageFile.Length > 0)
+                if (Poster != null && Poster.Length > 0)
                 {
                     using var memoryStream = new MemoryStream(); // Dispose() for garbage collection 
-                    await imageFile.CopyToAsync(memoryStream);
+                    await Poster.CopyToAsync(memoryStream);
                     movie.Poster = memoryStream.ToArray();
                 }
                 _context.Add(movie);
@@ -97,7 +97,7 @@ namespace Spring2026_Project3_mbvasquez.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ImbdLink,Genre,YearOfRelease")] Movie movie, IFormFile imageFile)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ImbdLink,Genre,YearOfRelease")] Movie movie, IFormFile Poster)
         {
             if (id != movie.Id)
             {
@@ -108,10 +108,10 @@ namespace Spring2026_Project3_mbvasquez.Controllers
             {
                 try
                 {
-                    if (imageFile != null && imageFile.Length > 0)
+                    if (Poster != null && Poster.Length > 0)
                     {
                         using var memoryStream = new MemoryStream(); // Dispose() for garbage collection 
-                        await imageFile.CopyToAsync(memoryStream);
+                        await Poster.CopyToAsync(memoryStream);
                         movie.Poster = memoryStream.ToArray();
                     }
                     _context.Update(movie);
