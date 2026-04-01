@@ -3,8 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Spring2026_Project3_mbvasquez</title>
+    <title>MovDb</title>
     <script type="importmap"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.bootstrap5.css" 
+        integrity="sha512-mFyydRaS7Chn2lAudevyF/L328ZqkSSbPXWvk6VO5kWLL6DX41NppPU6/pMbdnFPk7XAhZJbvlkLKc0tEt7ghA==" 
+        crossorigin="anonymous">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     @* <link rel="stylesheet" href="~/Spring2026_Project3_mbvasquez.styles.css" asp-append-version="true" /> *@
@@ -13,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Spring2026_Project3_mbvasquez</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MovDb</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -46,11 +49,17 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2026 - Spring2026_Project3_mbvasquez
+            &copy; 2026 - MovDb
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.7/js/dataTables.min.js" 
+        integrity="sha512-S3gF42+P7Zp9CzD/wjMtexyinMHFqX9enJKZ0IOLIVCqRKyhLEpVI6vLyP8kxBdKwP2BxJLkeXIN5YWYhHhm5w==" 
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.3.7/js/dataTables.bootstrap5.min.js" 
+        integrity="sha512-Nyuq/4gMn0cpq7HmxQyQjxNYEM6MFJgUJ98EAUQl+PPE6WvEcgKtyT8PPORQqEGLdf3/2yMaLjLwyH9nBUZOog==" 
+        crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
