@@ -18,8 +18,8 @@ public class AIGen
 
 
     //string secret = builder.Configuration.GetSelection("AI");
-    private static readonly Uri ApiEndpoint = new(WebApplication.CreateBuilder().Configuration["AI:ApiUrl"]);
-    private static readonly ApiKeyCredential ApiCredential = new(WebApplication.CreateBuilder().Configuration["AI:ApiKey"]);
+    private static readonly Uri ApiEndpoint = new(WebApplication.CreateBuilder().Configuration["ApiUrl"]);
+    private static readonly ApiKeyCredential ApiCredential = new(WebApplication.CreateBuilder().Configuration["ApiKey"]);
     private const string AiDeployment = "gpt-4.1-mini";
     public record class Tweet(string Username, string Text);
     public record class Tweets(Tweet[] Items);

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <History>True|2026-04-01T05:49:41.5029722Z||;True|2026-04-01T00:42:06.6530223-05:00||;True|2026-04-01T00:33:33.4443448-05:00||;True|2026-04-01T00:25:30.1028539-05:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <AzureDBConnectionStrings Include="Data Source=spring2026-project3-mbvasquez.database.windows.net,1433;Initial Catalog=Spring2026-Project3-mbvasquez;Authentication=ActiveDirectoryManagedIdentity" />
+    <AzureDBConnectionStrings Include="REDACTED" />
+    <AzureDBConnectionStrings Include="Server=tcp:spring2026-project3-mbvasquez.database.windows.net;Authentication=Active Directory Default;Initial Catalog=Spring2026-Project3-mbvasquez" />
+  </ItemGroup>
+</Project>
